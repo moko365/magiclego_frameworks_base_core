@@ -183,6 +183,8 @@ public class WebSettings {
     private boolean         mDatabaseEnabled = false;
     private boolean         mDomStorageEnabled = false;
     private boolean         mWorkersEnabled = false;  // only affects V8.
+    // Use Supermark
+    private boolean			mSupermarkEnabled = true;
     private boolean         mGeolocationEnabled = true;
     // HTML5 configuration parameters
     private long            mAppCacheMaxSize = Long.MAX_VALUE;
@@ -1100,6 +1102,27 @@ public class WebSettings {
         }
     }
 
+    
+    /**
+     * Supermark:
+     * Tell the WebView to enable Supermark
+     * @param flag True if the WebView should enable Supermark.
+     */
+    public synchronized void setSupermarkEnabled(boolean flag) {
+        if (mSupermarkEnabled != flag) {
+            mSupermarkEnabled = flag;
+            postSync();
+        }
+    }    
+
+    /**
+     * Return true if Supermark is enabled. <b>Note: The default is true.</b>
+     * @return True if Supermark is enabled.
+     */
+    public synchronized boolean getSupermarkEnabled() {
+        return mSupermarkEnabled;
+    }
+    
     /**
      * Set a custom path to the Application Caches files. The client
      * must ensure it exists before this call.

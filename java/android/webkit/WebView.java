@@ -4457,6 +4457,20 @@ public class WebView extends AbsoluteLayout
     }
 
     /**
+     * @hide supermark additional API
+     */
+    public int getNativeSelectionX() {
+        return mSelectX;
+    }
+
+    /**
+     * @hide supermark additional API
+     */
+    public int getNativeSelectionY() {
+        return mSelectY;
+    }
+
+    /**
      * @hide pending API council approval.
      */
     public boolean copySelection() {
